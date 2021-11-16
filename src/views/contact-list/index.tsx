@@ -1,5 +1,16 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Button, SafeAreaView, SectionList, StatusBar, StyleSheet, Text, View } from 'react-native';
+import {
+  Button,
+  SafeAreaView,
+  SectionList,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
+import { ContactsScreenNavigationProp } from '../../../routes/types';
 import { ContactListItem } from '../../components/contact-list-item';
 import { useContacts } from '../../hooks/use-contacts';
 import { ContactProperties, ContactSectionedByFavoriteProperties } from '../../models/contact';
@@ -8,6 +19,13 @@ import { sortContactsByName } from '../../utils/contacts';
 
 export function ContactList() {
   const { data: contacts = [], error, isLoading } = useContacts();
+  const { navigate } = useNavigation<ContactsScreenNavigationProp>();
+
+  const handlePressContactItem = (contactId: ContactProperties['id']) => {
+    navigate('Contact', {
+      contactId
+    });
+  };
 
   const handleOnPressSort = (isFavorite: ContactProperties['isFavorite']) => {
     const sortedFavorites: ContactSectionedByFavoriteProperties[] = [];
@@ -58,9 +76,13 @@ export function ContactList() {
           renderItem={({ item: contact, index }) => (
             <View style={styles.contactContainer}>
               {index > 0 && <View style={styles.divider} />}
-              <View style={styles.contactItemContainer}>
+              <TouchableOpacity
+                onPress={() => handlePressContactItem(contact.id)}
+                activeOpacity={0.5}
+                style={styles.contactItemContainer}
+              >
                 <ContactListItem {...contact} />
-              </View>
+              </TouchableOpacity>
             </View>
           )}
           renderSectionHeader={({ section: { title, isFavorite } }) => (
