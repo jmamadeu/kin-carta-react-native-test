@@ -10,10 +10,10 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
-import { ContactsScreenNavigationProp } from '../../../routes/types';
 import { ContactListItem } from '../../components/contact-list-item';
 import { useContacts } from '../../hooks/use-contacts';
 import { ContactProperties, ContactSectionedByFavoriteProperties } from '../../models/contact';
+import { ContactsScreenNavigationProp } from '../../routes/types';
 import { queryClient } from '../../services/api';
 import { sortContactsByName } from '../../utils/contacts';
 
@@ -21,9 +21,9 @@ export function ContactList() {
   const { data: contacts = [], error, isLoading } = useContacts();
   const { navigate } = useNavigation<ContactsScreenNavigationProp>();
 
-  const handlePressContactItem = (contactId: ContactProperties['id']) => {
+  const handlePressContactItem = (contact: ContactProperties) => {
     navigate('Contact', {
-      contactId
+      contact
     });
   };
 
@@ -77,7 +77,7 @@ export function ContactList() {
             <View style={styles.contactContainer}>
               {index > 0 && <View style={styles.divider} />}
               <TouchableOpacity
-                onPress={() => handlePressContactItem(contact.id)}
+                onPress={() => handlePressContactItem(contact)}
                 activeOpacity={0.5}
                 style={styles.contactItemContainer}
               >
@@ -109,10 +109,11 @@ const styles = StyleSheet.create({
     marginVertical: 10
   },
   sectionTitle: {
-    backgroundColor: '#f4f4f3',
+    backgroundColor: '#3333',
     padding: 8,
     textTransform: 'uppercase',
-    marginVertical: 8
+    marginVertical: 8,
+    color: '#000'
   },
   contactContainer: {
     marginHorizontal: 20
