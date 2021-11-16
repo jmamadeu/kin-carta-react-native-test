@@ -28,5 +28,6 @@ export interface ContactProperties {
 
 export interface ContactSectionedByFavoriteProperties {
   title: string;
+  isFavorite: boolean;
   data: ContactProperties[];
 }

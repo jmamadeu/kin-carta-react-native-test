@@ -30,6 +30,11 @@ export const ContactListItem = ({
 };
 
 const styles = StyleSheet.create({
+  contactItemContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   tinyContactPhoto: {
     width: 50,
     height: 50,
@@ -40,13 +45,6 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
     marginRight: 5
-  },
-  contactItemContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 20,
-    marginVertical: 10
   },
   favoriteContainer: {
     flexDirection: 'row',

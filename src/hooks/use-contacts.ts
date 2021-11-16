@@ -7,8 +7,16 @@ const fetchAllContacts = async (): Promise<ContactSectionedByFavoriteProperties[
   const { data: contacts } = await api.get<ContactProperties[]>('/contacts.json');
 
   const parsedContacts: ContactSectionedByFavoriteProperties[] = [
-    { title: 'Favorites Contacts', data: contacts.filter((contact) => contact.isFavorite) },
-    { title: 'Others Contacts', data: contacts.filter((contact) => !contact.isFavorite) }
+    {
+      title: 'Favorites Contacts',
+      isFavorite: true,
+      data: contacts.filter((contact) => contact.isFavorite)
+    },
+    {
+      title: 'Others Contacts',
+      isFavorite: false,
+      data: contacts.filter((contact) => !contact.isFavorite)
+    }
   ];
 
   return parsedContacts;
