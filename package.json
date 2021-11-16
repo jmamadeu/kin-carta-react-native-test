@@ -10,15 +10,18 @@
     "eject": "expo eject",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "lint": "eslint --quiet --fix './src/**/*.{ts,tsx}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "debug": "react-devtools"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "expo": "~43.0.2",
     "expo-status-bar": "~1.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
-    "react-native-web": "0.17.1"
+    "react-native-web": "0.17.1",
+    "react-query": "^3.32.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -33,9 +36,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.0",
     "git-commit-msg-linter": "^3.2.8",
+    "husky": "^7.0.0",
     "prettier": "^2.4.1",
-    "typescript": "~4.3.5",
-    "husky": "^7.0.0"
+    "react-devtools": "^4.21.0",
+    "typescript": "~4.3.5"
   },
   "private": true
 }
