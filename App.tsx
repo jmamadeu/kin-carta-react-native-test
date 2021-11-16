@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { QueryClientProvider } from 'react-query';
-import { Router } from './routes';
+import { Router } from './src/routes';
 import { queryClient } from './src/services/api';
 
 export default function App() {

@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { ContactList } from '../src/views/contact-list';
-import { ContactProfile } from '../src/views/contact-profile';
+import { ContactList } from '../views/contact-list';
+import { ContactProfile } from '../views/contact-profile';
 import { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
