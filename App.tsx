@@ -1,21 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from './src/services/api';
+import { ContactList } from './src/views/contact-list';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello world with styles ss</Text>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <ContactList />
+      </QueryClientProvider>
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
