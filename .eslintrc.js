@@ -18,8 +18,14 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: 'module'
   },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'no-var-requires': 'off'
   }
 };
