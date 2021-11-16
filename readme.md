@@ -3,6 +3,8 @@
 Simple react native app to fetch and list contacts from an API, and show each contact detail on another page
 <hr>
 
+> Can't wait to test, don't worry [click the see the preview video](https://www.youtube.com/watch?v=Hw0tsNKkt_w&list=PLshvYX7dmlaiCBAFUWxBwyLQaYbIaow9b&index=2)
+
 ### Core Techs
 - [React Native and Expo](https://expo.dev/)
 - [Typescript](https://www.typescriptlang.org/)
